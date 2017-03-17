@@ -9,7 +9,6 @@ import data from './photos/data.json';
 const position = [14.58, 121];
 const icon = divIcon({className: 'my-div-icon', iconSize: new Point(50, 42), iconAnchor: new Point(25, 3)});
 
-console.log(data);
 class App extends Component {
   render() {
     return (
@@ -24,7 +23,7 @@ class App extends Component {
               <span>
                 <h1>{marker.title}</h1>
                 {marker.dates.map(date => (
-                  <span>
+                  <span key={date.date}>
                     <h3>{moment(date.date).format('MMMM YYYY')}</h3>                    
                     <div>
                       <img src={require(`./${date.image}`)} alt={date.description} />
